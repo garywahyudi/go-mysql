@@ -61,17 +61,6 @@ func main() {
 	// Redirect log output to the file
 	logger := log.New(logFile, "", log.LstdFlags)
 
-	// Execute the move-to-modify.sh script
-	scriptPath := "./move-to-modify.sh" // Assuming the script is in the same directory as your Go code
-
-	cmd := exec.Command("bash", scriptPath)
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		logger.Printf("Error executing move-to-modify.sh: %v\n%s\n", err, string(output))
-	} else {
-		logger.Println("move-to-modify.sh executed successfully.")
-	}
-
 	// Parse command-line arguments
 	flag.Parse()
 	fmt.Printf("Project Folder: %s\n", *projectFolder)
